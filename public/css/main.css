@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 20px;
+    font-family: Arial;
+    line-height: 1.5;
+}
+
+.title {
+    text-transform: uppercase;
+}
+.news {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
