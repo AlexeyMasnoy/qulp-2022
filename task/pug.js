@@ -1,27 +1,17 @@
-const { src, dest } = require('gulp');
-
-// Конфигурация
-const path = require("../config/path.js");
-const app = require("../config/app.js");
-
-// Плагины
-const plumber = require('gulp-plumber');
-const notify = require('gulp-notify');
-const pugs = require('gulp-pug');
-
-
 // Обработка PUG
 const pug = () => {
     
-    return src(path.pug.src)
-			.pipe(plumber({
-				errorHandler: notify.onError(error => ({
+    return $.gulp.src($.path.pug.src)
+			.pipe($.gulpload.plumber({
+				errorHandler: $.gulpload.notify.onError(error => ({
 					title: "PUG",
 					message: error.message
 				}))
 			}))
-			.pipe(pugs(app.pug))
-			.pipe(dest(path.root));
+			.pipe($.gulpload.pug($.app.pug))
+			// .pipe(webphtml())
+			.pipe($.gulp.dest($.path.pug.dest))
+			.pipe($.browserSync.stream());
 }
 
 module.exports = pug;
